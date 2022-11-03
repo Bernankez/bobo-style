@@ -1,3 +1,6 @@
 {
-  "extends": "@bernankez"
+  "extends": "@bernankez",
+  "rules": {
+    "vue/no-reserved-component-names": "off"
+  }
 }
