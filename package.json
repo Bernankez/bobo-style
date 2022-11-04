@@ -19,6 +19,7 @@
   "devDependencies": {
     "@bernankez/eslint-config": "^0.1.0",
     "@types/lodash-es": "^4.17.6",
+    "@types/node": "^18.11.9",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^2.1.0",
     "eslint": "^8.26.0",
