@@ -13,7 +13,7 @@ function generateApp() {
     use(com: Component) {
       com.install?.();
     },
-    component(name: string, com: Component) {
+    component(name: string, _com: Component) {
       this.names.push(name);
     },
     get() {

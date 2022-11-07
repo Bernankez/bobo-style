@@ -1,48 +1,61 @@
 /// <reference types="vitest" />
 import { resolve } from "path";
-// import glob from "fast-glob";
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import dts from "vite-plugin-dts";
 
+// component root dir
 const componentsDir = resolve(__dirname, "components");
 
 // https://vitejs.dev/config/
-export default defineConfig(async () => {
-  // const input = await glob("components/**/*.{ts,tsx,vue}", {
-  //   cwd: __dirname,
-  //   absolute: true,
-  //   onlyFiles: true,
-  //   ignore: [],
-  // });
-
+export default defineConfig(() => {
   return {
-    plugins: [vue(), vueJsx(), dts({
-      copyDtsFiles: false,
-    })],
+    plugins: [
+      vue(),
+      vueJsx(),
+      dts({
+        // 声明文件输出目录
+        outputDir: "es",
+        // 入口文件的跟路径
+        entryRoot: componentsDir,
+      }),
+      dts({
+        outputDir: "lib",
+        entryRoot: componentsDir,
+      }),
+    ],
     test: {
       environment: "happy-dom",
     },
     build: {
       minify: false,
       lib: {
-        entry: resolve(componentsDir, "index.ts"),
         name: "bobo-style",
-        fileName: module => `[name].${module === "es" ? "mjs" : "js"}`,
-        formats: ["es", "cjs"],
+        // 入口文件
+        entry: resolve(componentsDir, "index.ts"),
       },
       rollupOptions: {
-        // input,
         external: ["vue"],
-        output: {
-          inlineDynamicImports: false,
-          preserveModules: true,
-          // preserveModulesRoot: componentsDir,
-          globals: {
-            vue: "Vue",
+        output: [
+          {
+            format: "es",
+            entryFileNames: "[name].mjs",
+            // 打包目录和文件目录对应
+            preserveModules: true,
+            // 入口文件的根路径
+            preserveModulesRoot: componentsDir,
+            // 打包输出目录
+            dir: "es",
           },
-        },
+          {
+            format: "cjs",
+            entryFileNames: "[name].js",
+            preserveModules: true,
+            preserveModulesRoot: componentsDir,
+            dir: "lib",
+          },
+        ],
       },
     },
   };
