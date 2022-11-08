@@ -22,12 +22,13 @@
   "types": "es/index.d.ts",
   "files": [
     "es",
-    "lib"
+    "lib",
+    "volar.d.ts"
   ],
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "build:types": "tsx ./scripts/generate-volar-types.ts",
+    "build:types": "tsx ./scripts/generate-webstorm-types.ts --tsconfig ./tsconfig.esbuild.json && tsx ./scripts/generate-volar-types.ts --tsconfig ./tsconfig.esbuild.json",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",

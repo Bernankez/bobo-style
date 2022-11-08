@@ -6,12 +6,16 @@ import { components as globalComponents } from "../components";
 const TYPE_ROOT = process.cwd();
 const DTS_FILENAME = "volar.d.ts";
 
+const excludeComponents: string[] = [];
+
 async function generateVolarTypes() {
   const components: Record<string, string> = {};
   globalComponents.forEach((component) => {
     const key = component.name;
     const entry = `typeof import('bobo-style')['${key}']`;
-    components[key] = entry;
+    if (!excludeComponents.includes(key)) {
+      components[key] = entry;
+    }
   });
 
   const originDTS = fs.existsSync(path.resolve(TYPE_ROOT, DTS_FILENAME))

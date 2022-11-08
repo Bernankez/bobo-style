@@ -13,6 +13,7 @@ dist-ssr
 es
 lib
 volar.d.ts
+web-types.json
 *.local
 
 # Editor directories and files
