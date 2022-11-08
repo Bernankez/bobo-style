@@ -3,6 +3,6 @@ import Button from "./button/Button";
 
 const components = [Button];
 
-export { Button };
+export { components, Button };
 
 export default withInstall(components);

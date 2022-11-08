@@ -12,6 +12,7 @@ dist
 dist-ssr
 es
 lib
+volar.d.ts
 *.local
 
 # Editor directories and files
