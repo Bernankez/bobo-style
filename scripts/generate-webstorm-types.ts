@@ -2,7 +2,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import fs from "fs-extra";
 import { kebabCase } from "lodash-es";
-import { components as globalComponents } from "../components";
+import type { DefineComponent } from "vue";
+import * as globalComponents from "../components";
 import { version } from "../package.json";
 
 interface Attribute {
@@ -47,9 +48,9 @@ function generateWebstormTypes() {
 
   const ignoredPropNames: string[] = [];
 
-  globalComponents.forEach((component) => {
-    const key = component.name;
-    const { props } = component;
+  Object.keys(globalComponents).forEach((key) => {
+    if (key === "default") { return; }
+    const { props } = (globalComponents as unknown as Record<string, DefineComponent<{}, {}, any>>)[key];
     const slots: any[] = [];
     const attributes: Attribute[] = [];
     const events: Event[] = [];

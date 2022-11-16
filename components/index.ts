@@ -1,8 +1,9 @@
 import { withInstall } from "./_utils/withInstall";
-import Button from "./button/Button";
+import { Button } from "./button";
+import { Card } from "./card";
 
-const components = [Button];
+const components = [Button, Card];
 
-export { components, Button };
+export { Button, Card };
 
 export default withInstall(components);

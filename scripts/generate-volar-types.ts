@@ -1,7 +1,7 @@
 import path from "node:path";
 import process from "node:process";
 import fs from "fs-extra";
-import { components as globalComponents } from "../components";
+import * as globalComponents from "../components";
 
 const TYPE_ROOT = process.cwd();
 const DTS_FILENAME = "volar.d.ts";
@@ -10,8 +10,8 @@ const excludeComponents: string[] = [];
 
 async function generateVolarTypes() {
   const components: Record<string, string> = {};
-  globalComponents.forEach((component) => {
-    const key = component.name;
+  Object.keys(globalComponents).forEach((key) => {
+    if (key === "default") { return; }
     const entry = `typeof import('bobo-style')['${key}']`;
     if (!excludeComponents.includes(key)) {
       components[key] = entry;
