@@ -29,7 +29,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vue-tsc && vite build",
-    "build:types": "tsx ./scripts/generate-webstorm-types.ts --tsconfig ./tsconfig.esbuild.json && tsx ./scripts/generate-volar-types.ts --tsconfig ./tsconfig.esbuild.json",
+    "build:types": "tsxv --tsconfig ./tsconfig.esbuild.json ./scripts/generate-webstorm-types.ts && tsxv --tsconfig ./tsconfig.esbuild.json ./scripts/generate-volar-types.ts",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
@@ -56,7 +56,7 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.0.3",
     "lodash-es": "^4.17.21",
-    "tsx": "^3.11.0",
+    "tsxv": "^0.0.8",
     "typescript": "^4.6.4",
     "vite": "^3.2.0",
     "vite-plugin-dts": "^1.6.6",
