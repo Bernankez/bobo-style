@@ -7,7 +7,7 @@ import { createSSRApp } from "vue";
 import { renderToString } from "vue/server-renderer";
 import { Button } from "..";
 
-describe("SSR for Alert", () => {
+describe("SSR for Button", () => {
   it("render", async () => {
     try {
       await renderToString(createSSRApp(() => <Button></Button>));
