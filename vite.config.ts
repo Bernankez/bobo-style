@@ -50,7 +50,7 @@ export default defineConfig(() => {
           },
           {
             format: "cjs",
-            entryFileNames: "[name].js",
+            entryFileNames: "[name].cjs",
             preserveModules: true,
             preserveModulesRoot: componentsDir,
             dir: "lib",
