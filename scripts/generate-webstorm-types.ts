@@ -3,8 +3,10 @@ import { fileURLToPath } from "node:url";
 import fs from "fs-extra";
 import { kebabCase } from "lodash-es";
 import type { DefineComponent } from "vue";
-import * as globalComponents from "../components";
+import * as globalComponents from "../packages/components";
 import { version } from "../package.json";
+
+const WEB_TYPES_FILEPATH = "./packages/bobo-style/web-types.json";
 
 interface Attribute {
   name: string;
@@ -90,7 +92,7 @@ function generateWebstormTypes() {
     });
   });
 
-  fs.writeFileSync(path.resolve(__dirname, "../web-types.json"), JSON.stringify(scaffold, null, 2), { encoding: "utf-8" });
+  fs.writeFileSync(path.resolve(process.cwd(), WEB_TYPES_FILEPATH), JSON.stringify(scaffold, null, 2), { encoding: "utf-8" });
 }
 generateWebstormTypes();
 

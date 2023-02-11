@@ -13,11 +13,6 @@
     "skipLibCheck": true,
     "noEmit": true
   },
-  "exclude": [
-    "**/node_modules/**",
-    "**/es/**",
-    "**/lib/**",
-    "**/dist/**",
-    "playground"
-  ]
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "references": [{ "path": "./tsconfig.node.json" }]
 }

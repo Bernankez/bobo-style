@@ -1,0 +1,51 @@
+{
+  "name": "@bobo-style/utils",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Utilities for Bobo Style",
+  "author": {
+    "name": "Cole",
+    "email": "bernankez@qq.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bernankez/bobo-style.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@types/lodash-es": "^4.17.6",
+    "lodash-es": "^4.17.21",
+    "vue": "^3.2.41"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
