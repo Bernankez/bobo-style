@@ -1,0 +1,56 @@
+{
+  "name": "bobo-style",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "An old-fashioned UI Component library for Vue3",
+  "author": {
+    "name": "Cole",
+    "email": "bernankez@qq.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bernankez/bobo-style.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "dist",
+    "volar.d.ts",
+    "web-types.json"
+  ],
+  "scripts": {
+    "dev": "unbuild --stub",
+    "build": "unbuild && tsxv ../../scripts/generate.ts"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.6"
+  },
+  "dependencies": {
+    "@bobo-style/components": "workspace:*",
+    "@bobo-style/utils": "workspace:*"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "allowedVersions": {
+        "vite": "^3.0.0"
+      }
+    }
+  }
+}

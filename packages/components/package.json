@@ -1,0 +1,51 @@
+{
+  "name": "@bobo-style/components",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "An old-fashioned UI Component library for Vue3",
+  "author": {
+    "name": "Cole",
+    "email": "bernankez@qq.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bernankez/bobo-style.git"
+  },
+  "exports": {
+    ".": {
+      "types": "./es/index.d.ts",
+      "require": "./lib/index.cjs",
+      "import": "./es/index.mjs"
+    }
+  },
+  "main": "lib/index.cjs",
+  "module": "es/index.mjs",
+  "types": "es/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./es/*",
+        "./es/index.d.ts"
+      ]
+    }
+  },
+  "files": [
+    "es",
+    "lib"
+  ],
+  "scripts": {
+    "dev": "vite build --watch",
+    "build": "vue-tsc && vite build"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.0"
+  },
+  "dependencies": {
+    "@bobo-style/utils": "workspace:*",
+    "vue": "^3.2.41"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

@@ -1,4 +1,4 @@
-import { withInstall } from "./_utils/withInstall";
+import { withInstall } from "@bobo-style/utils";
 import { Button } from "./button";
 import { Card } from "./card";
 

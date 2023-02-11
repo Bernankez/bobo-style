@@ -1,6 +1,6 @@
 {
   "extends": "@bernankez",
-  "ignorePatterns": ["es/*", "lib/*"],
+  "ignorePatterns": ["**/es/*", "**/lib/*"],
   "rules": {
     "vue/no-reserved-component-names": "off"
   }
