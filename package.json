@@ -24,6 +24,7 @@
     "coverage": "vitest run --coverage",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint . --fix",
+    "lint:check": "eslint .",
     "prepare": "husky install"
   },
   "devDependencies": {
