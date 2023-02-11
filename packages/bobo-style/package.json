@@ -1,7 +1,7 @@
 {
   "name": "bobo-style",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "An old-fashioned UI Component library for Vue3",
   "author": {
     "name": "Cole",

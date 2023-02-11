@@ -1,7 +1,7 @@
 {
   "name": "@bobo-style/utils",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Utilities for Bobo Style",
   "author": {
     "name": "Cole",
