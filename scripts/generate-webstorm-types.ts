@@ -1,5 +1,4 @@
 import path from "node:path";
-import { fileURLToPath } from "node:url";
 import fs from "fs-extra";
 import { kebabCase } from "lodash-es";
 import type { DefineComponent } from "vue";
@@ -28,9 +27,6 @@ type Constructors =
   | ObjectConstructor
   | FunctionConstructor
   | DateConstructor;
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 function generateWebstormTypes() {
   const vueComponents: any[] = [];

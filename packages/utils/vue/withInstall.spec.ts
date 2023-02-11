@@ -1,3 +1,5 @@
+/* eslint-disable vue/one-component-per-file */
+
 import { describe, expect, it } from "vitest";
 import type { App } from "vue";
 import { defineComponent } from "vue";
