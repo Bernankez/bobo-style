@@ -43,7 +43,7 @@
     "lint-staged": "^13.1.1",
     "lodash-es": "^4.17.21",
     "rimraf": "^3.0.2",
-    "tsxv": "^0.0.11",
+    "tsvx": "^0.0.1",
     "typescript": "^4.9.5",
     "unbuild": "^1.1.1",
     "vite": "^4.1.1",
