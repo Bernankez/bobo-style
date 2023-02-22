@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import dts from "vite-plugin-dts";
+import UnoCSS from "unocss/vite";
 
 // component root dir
 const componentsDir = __dirname;
@@ -13,6 +14,8 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       vueJsx(),
+      // TODO #ref https://github.com/unocss/unocss/pull/2231 generate & move style.css
+      UnoCSS(),
       dts({
         // 声明文件输出目录
         outputDir: "es",
@@ -39,7 +42,8 @@ export default defineConfig(() => {
         output: [
           {
             format: "es",
-            entryFileNames: chunkInfo => `${chunkInfo.name.replace(/.vue$/, "")}.mjs`,
+            entryFileNames: chunkInfo =>
+              `${chunkInfo.name.replace(/.vue$/, "")}.mjs`,
             // 打包目录和文件目录对应
             preserveModules: true,
             // 入口文件的根路径
@@ -49,7 +53,8 @@ export default defineConfig(() => {
           },
           {
             format: "cjs",
-            entryFileNames: chunkInfo => `${chunkInfo.name.replace(/.vue$/, "")}.cjs`,
+            entryFileNames: chunkInfo =>
+              `${chunkInfo.name.replace(/.vue$/, "")}.cjs`,
             preserveModules: true,
             preserveModulesRoot: componentsDir,
             dir: "lib",

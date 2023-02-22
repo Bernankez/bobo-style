@@ -1,5 +1,7 @@
 <template>
-  <div>card</div>
+  <div class="text-red">
+    card
+  </div>
 </template>
 
 <script setup lang="ts">
