@@ -5,12 +5,12 @@
   "description": "",
   "author": "Cole <bernankez@qq.com>",
   "license": "MIT",
-  "homepage": "https://github.com/bernankez/TSTemplateMonorepo#readme",
+  "homepage": "https://github.com/bernankez/bobo-style#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/bernankez/TSTemplateMonorepo.git"
+    "url": "git+https://github.com/bernankez/bobo-style.git"
   },
-  "bugs": "https://github.com/bernankez/TSTemplateMonorepo/issues",
+  "bugs": "https://github.com/bernankez/bobo-style/issues",
   "keywords": [],
   "sideEffects": false,
   "exports": {

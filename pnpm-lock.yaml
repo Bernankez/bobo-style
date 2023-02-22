@@ -57,18 +57,25 @@ importers:
   packages/bobo-style:
     specifiers:
       '@bobo-style/components': workspace:*
+      '@bobo-style/preset': workspace:*
       '@bobo-style/utils': workspace:*
     dependencies:
       '@bobo-style/components': link:../components
+      '@bobo-style/preset': link:../preset
       '@bobo-style/utils': link:../utils
 
   packages/components:
     specifiers:
+      '@bobo-style/preset': workspace:*
       '@bobo-style/utils': workspace:*
       vue: ^3.2.41
     dependencies:
+      '@bobo-style/preset': link:../preset
       '@bobo-style/utils': link:../utils
       vue: 3.2.41
+
+  packages/preset:
+    specifiers: {}
 
   packages/utils:
     specifiers:

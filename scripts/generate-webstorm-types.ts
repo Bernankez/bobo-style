@@ -2,7 +2,7 @@ import path from "node:path";
 import fs from "fs-extra";
 import { kebabCase } from "lodash-es";
 import type { DefineComponent } from "vue";
-import * as globalComponents from "../packages/components";
+import * as globalComponents from "../packages/components/components";
 import { version } from "../package.json";
 
 const WEB_TYPES_FILEPATH = "./packages/bobo-style/web-types.json";

@@ -1,9 +1,10 @@
 <template>
   <Button />
+  <Card />
 </template>
 
 <script setup lang="ts">
-import { Button } from "bobo-style";
+import { Button, Card } from "bobo-style";
 </script>
 
 <style scoped>

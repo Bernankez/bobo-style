@@ -42,6 +42,7 @@
     "vue": "^3.2.0"
   },
   "dependencies": {
+    "@bobo-style/preset": "workspace:*",
     "@bobo-style/utils": "workspace:*",
     "vue": "^3.2.41"
   },

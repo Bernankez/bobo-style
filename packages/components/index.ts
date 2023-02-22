@@ -1,9 +1,3 @@
-import { withInstall } from "@bobo-style/utils";
-import { Button } from "./button";
-import { Card } from "./card";
+import "uno.css";
 
-const components = [Button, Card];
-
-export { Button, Card };
-
-export default withInstall(components);
+export * from "./components";

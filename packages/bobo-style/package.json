@@ -44,6 +44,7 @@
   },
   "dependencies": {
     "@bobo-style/components": "workspace:*",
+    "@bobo-style/preset": "workspace:*",
     "@bobo-style/utils": "workspace:*"
   },
   "pnpm": {

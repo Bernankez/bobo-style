@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import dts from "vite-plugin-dts";
+import UnoCSS from "unocss/vite";
 
 // component root dir
 const componentsDir = __dirname;
@@ -13,6 +14,7 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       vueJsx(),
+      UnoCSS(),
       dts({
         // 声明文件输出目录
         outputDir: "es",
@@ -35,7 +37,7 @@ export default defineConfig(() => {
         entry: resolve(componentsDir, "index.ts"),
       },
       rollupOptions: {
-        external: ["vue", "@bobo-style/utils"],
+        external: ["vue", "@bobo-style/utils", "@bobo-style/preset"],
         output: [
           {
             format: "es",
