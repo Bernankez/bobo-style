@@ -14,7 +14,6 @@ export default defineConfig(() => {
     plugins: [
       vue(),
       vueJsx(),
-      // TODO #ref https://github.com/unocss/unocss/pull/2231 generate & move style.css
       UnoCSS(),
       dts({
         // 声明文件输出目录
