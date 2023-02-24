@@ -37,7 +37,7 @@ export default defineConfig(() => {
         entry: resolve(componentsDir, "index.ts"),
       },
       rollupOptions: {
-        external: ["vue", "@bobo-style/utils"],
+        external: ["vue", "@bobo-style/utils", "@bobo-style/preset"],
         output: [
           {
             format: "es",

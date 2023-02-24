@@ -70,9 +70,11 @@ importers:
 
   packages/components:
     specifiers:
+      '@bobo-style/preset': workspace:^0.0.0
       '@bobo-style/utils': workspace:*
       vue: ^3.2.41
     dependencies:
+      '@bobo-style/preset': link:../preset
       '@bobo-style/utils': link:../utils
       vue: 3.2.41
 
