@@ -38,7 +38,7 @@
   ],
   "scripts": {
     "dev": "unbuild --stub",
-    "build": "unbuild && tsvx ../../scripts/generate.ts"
+    "build": "unbuild"
   },
   "peerDependencies": {
     "vue": "^3.2.6"

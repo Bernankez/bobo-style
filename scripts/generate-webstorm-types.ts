@@ -1,11 +1,16 @@
-import path from "node:path";
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import fs from "fs-extra";
 import { kebabCase } from "lodash-es";
 import type { DefineComponent } from "vue";
 import * as globalComponents from "../packages/components/components";
 import { version } from "../package.json";
 
-const WEB_TYPES_FILEPATH = "./packages/bobo-style/web-types.json";
+const dir = typeof __dirname === "string" ? __dirname : dirname(fileURLToPath(import.meta.url));
+const root = dirname(dir);
+
+const boboStyleDir = "./packages/bobo-style/web-types.json";
+const componentsDir = "./packages/components/web-types.json";
 
 interface Attribute {
   name: string;
@@ -28,7 +33,10 @@ type Constructors =
   | FunctionConstructor
   | DateConstructor;
 
-function generateWebstormTypes() {
+generateWebstormTypes([boboStyleDir, componentsDir]);
+
+function generateWebstormTypes(outputs: string[] = []) {
+  if (outputs.length === 0) { return; }
   const vueComponents: any[] = [];
 
   const scaffold = {
@@ -88,9 +96,10 @@ function generateWebstormTypes() {
     });
   });
 
-  fs.writeFileSync(path.resolve(process.cwd(), WEB_TYPES_FILEPATH), JSON.stringify(scaffold, null, 2), { encoding: "utf-8" });
+  outputs.forEach((output) => {
+    fs.writeFileSync(path.resolve(root, output), JSON.stringify(scaffold, null, 2), { encoding: "utf-8" });
+  });
 }
-generateWebstormTypes();
 
 function getType(prop: any) {
   if (typeof prop !== "object" && typeof prop !== "function") {

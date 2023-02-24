@@ -9,10 +9,16 @@ const { success, error } = createConsole("generate types ");
 
 async function generate() {
   await Promise.all([
+    // generate types to packages/bobo-style
     execa("pnpm", ["tsvx", "--tsconfig", resolve(root, "./tsconfig.esbuild.json"), "./scripts/generate-volar-types.ts"], { cwd: root, stdio: "inherit" }),
     execa("pnpm", ["tsvx", "--tsconfig", resolve(root, "./tsconfig.esbuild.json"), "./scripts/generate-webstorm-types.ts"], { cwd: root, stdio: "inherit" }),
   ]).then(() => {
-    success(`types generated in ${resolve(root, "./packages/bobo-style")}`);
+    success(
+      `types generated in \n${resolve(
+        root,
+        "./packages/bobo-style",
+      )}\n${resolve(root, "./packages/components")}`,
+    );
     return true;
   }).catch((e) => {
     error("types generate failed", e);

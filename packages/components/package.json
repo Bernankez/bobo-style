@@ -33,7 +33,9 @@
   },
   "files": [
     "es",
-    "lib"
+    "lib",
+    "volar.d.ts",
+    "web-types.json"
   ],
   "scripts": {
     "dev": "vite build --watch",

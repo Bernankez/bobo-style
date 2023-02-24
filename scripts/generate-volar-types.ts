@@ -1,15 +1,20 @@
-import path from "node:path";
-import process from "node:process";
+import path, { dirname } from "node:path";
+import { fileURLToPath } from "node:url";
 import fs from "fs-extra";
 import * as globalComponents from "../packages/components/components";
 
-const TYPE_ROOT = process.cwd();
-const DTS_FILEPATH = "./packages/bobo-style/volar.d.ts";
+const dir = typeof __dirname === "string" ? __dirname : dirname(fileURLToPath(import.meta.url));
+const root = dirname(dir);
 
-const excludeComponents: string[] = [];
+const boboStyleDir = "./packages/bobo-style/volar.d.ts";
+const componentsDir = "./packages/components/volar.d.ts";
 
-async function generateVolarTypes() {
+generateVolarTypes([boboStyleDir, componentsDir]);
+
+async function generateVolarTypes(outputs: string[] = []) {
+  if (outputs.length === 0) { return; }
   const components: Record<string, string> = {};
+  const excludeComponents: string[] = [];
   Object.keys(globalComponents).forEach((key) => {
     if (key === "default") { return; }
     const entry = `typeof import('bobo-style')['${key}']`;
@@ -18,8 +23,8 @@ async function generateVolarTypes() {
     }
   });
 
-  const originDTS = fs.existsSync(path.resolve(TYPE_ROOT, DTS_FILEPATH))
-    ? await fs.readFile(path.resolve(TYPE_ROOT, DTS_FILEPATH), "utf-8")
+  const originDTS = fs.existsSync(path.resolve(root, outputs[0]))
+    ? await fs.readFile(path.resolve(root, outputs[0]), "utf-8")
     : "";
   const originImports = parseComponentsDeclaration(originDTS);
   const lines = Object.entries({
@@ -42,10 +47,9 @@ declare module 'vue' {
 export {}
 `;
   if (code !== originDTS) {
-    await fs.writeFile(path.resolve(TYPE_ROOT, DTS_FILEPATH), code, "utf-8");
+    await Promise.allSettled(outputs.map(output => fs.writeFile(path.resolve(root, output), code, "utf-8")));
   }
 }
-generateVolarTypes();
 
 function parseComponentsDeclaration(code: string) {
   if (!code) {
