@@ -20,7 +20,7 @@
     "playground": "pnpm -C playground dev",
     "build": "pnpm clean && pnpm -r -F \"./packages/{utils,preset,components,bobo-style}\" build && pnpm build:types",
     "build:types": "tsvx ./scripts/generate.ts",
-    "release": "bumpp package.json packages/**/package.json",
+    "release": "bumpp package.json packages/*/package.json",
     "test": "vitest run",
     "test:watch": "vitest",
     "coverage": "vitest run --coverage",
